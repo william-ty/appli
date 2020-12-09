@@ -1,0 +1,17 @@
+{
+    "name": "mahogany_nvme/appli",
+    "authors": [
+        {
+            "name": "william-ty",
+            "email": "william.trahay@gmail.com"
+        }
+    ],
+    "require": {
+    },
+	"autoload": {
+		"psr-4": {
+			"App\\" : "src/"
+		}
+	}
+
+}
