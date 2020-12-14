@@ -1,4 +1,5 @@
 <?php
+    namespace App\Entity;
     /**
      * Modèle représentant un produit dans l'application
      */

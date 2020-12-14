@@ -1,5 +1,7 @@
 {
     "name": "mahogany_nvme/appli",
+    "type": "project",
+    "license": "GNU",
     "authors": [
         {
             "name": "william-ty",
@@ -13,5 +15,4 @@
 			"App\\" : "src/"
 		}
 	}
-
 }
