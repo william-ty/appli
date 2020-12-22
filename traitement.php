@@ -39,24 +39,24 @@
                 header("Location:index.php");
                 die;
             //ajout de produit
-            case "add": 
-                if(isset($_POST['submit'])){
+            // case "add": 
+            //     if(isset($_POST['submit'])){
 
-                    $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING);
-                    $price = filter_input(INPUT_POST, "price", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-                    $qtt = filter_input(INPUT_POST, "qtt", FILTER_VALIDATE_INT);
+            //         $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING);
+            //         $price = filter_input(INPUT_POST, "price", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+            //         $qtt = filter_input(INPUT_POST, "qtt", FILTER_VALIDATE_INT);
             
-                    if($name && $price){
+            //         if($name && $price){
                         
   
-                        $manager->insert($name, $price);    //ajout en base de données
-                        MessageService::setMessage("success", "Produit ajouté avec succès !!");
-                    }
-                    else MessageService::setMessage("error", "Formulaire mal rempli, réessayez !");
-                }
-                else MessageService::setMessage("error", "Vous n'avez pas soumis le formulaire...");
-                header("Location:form.php");
-                die;
+            //             $manager->insert($name, $price);    //ajout en base de données
+            //             MessageService::setMessage("success", "Produit ajouté avec succès !!");
+            //         }
+            //         else MessageService::setMessage("error", "Formulaire mal rempli, réessayez !");
+            //     }
+            //     else MessageService::setMessage("error", "Vous n'avez pas soumis le formulaire...");
+            //     header("Location:form.php");
+            //     die;
 
             //supprimer un produit avec son index
             case "delete":
@@ -75,18 +75,18 @@
                     MessageService::setMessage("success", "Liste des produits effacée !!");
                 }
                 break;
-            case "suppr":
-            // supprimer un produit
-                if(isset($_GET['id'])){
+            // case "suppr":
+            // // supprimer un produit
+            //     if(isset($_GET['id'])){
 
-                    $manager->delete($_GET['id']);
-                    MessageService::setMessage("success", "Produit supprimé avec succès !!");
-                } else {
-                    MessageService::setMessage("error", "Mauvaise requête !!");
-                }
-                header("Location:form.php");
-                die;
-            break;
+            //         $manager->delete($_GET['id']);
+            //         MessageService::setMessage("success", "Produit supprimé avec succès !!");
+            //     } else {
+            //         MessageService::setMessage("error", "Mauvaise requête !!");
+            //     }
+            //     header("Location:form.php");
+            //     die;
+            // break;
         }//fin du switch
         //dans le cas où l'action n'a redirigé nulle part
         header("Location:recap.php");

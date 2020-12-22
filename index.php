@@ -2,6 +2,7 @@
     // Ceci est le front controller !
     // c'est le seul fichier de dialogue avec l'utilisateur
     require "vendor/autoload.php";
+    require "config.php";
 
     use App\Service\RouterService;
 
@@ -21,9 +22,7 @@
     ob_start(); //tamporisation de sortie - output buffer
     
     //tous les affichages à partir de ob_start() se stockent dans un tampon de sortie
-    include "template/store/".$response["view"];
-    echo "kikoo";
-    print 2+1;
+    include TEMPLATE_DIR.$response["view"]; // "template/".$response["view"];
 
     //ici, je récupère ce qu'il y a dans le tampon et le met dans une variable
     //(au lieu de l'afficher directement)
