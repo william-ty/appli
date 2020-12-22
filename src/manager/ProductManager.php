@@ -1,16 +1,16 @@
 <?php
-    // require_once "Product.php";
 
     namespace App\Manager;
 
+    use App\Core\DAO;
     use App\Entity\Product;
 
     /**
      * Gestionnaire de produits en base de données
      */
-    class ProductManager
+    class ProductManager extends DAO
     {
-        private $pdo;
+        protected $pdo;
 
         public function __construct(){
             $this->pdo = new \PDO(
