@@ -1,8 +1,10 @@
 <?php
-    if(!isset($_SESSION['cart']) || empty($_SESSION['cart'])){
+
+    $cart = App\Service\CartHandlerService::getCart();
+
+    if($cart->isEmpty()){
         echo "<p>Aucun produit en session...</p>";
-    }
-    else{
+    }else{
         echo "<table id='recap'>",
                 "<thead>",
                     "<tr>",
@@ -15,16 +17,17 @@
                 "</thead>",
                 "<tbody>";
         $totalGeneral = 0;
-        foreach($_SESSION['cart'] as $index => $order){
-            // $order[Product, 'qtt', 'total']
+        foreach($cart->getLines() as $index => $line){
             echo "<tr>",
-                    "<td class='text-center'><a href='traitement.php?action=delete&index=$index'>&times;</a></td>",
-                    "<td>".$order['product']->getName()."</td>",
-                    "<td class='text-right'>".$order['product']->getPrice(true)."&nbsp;€</td>",
-                    "<td class='text-center'>".$order['qtt']."</td>",
-                    "<td class='text-right'>".$order['total']."&nbsp;€</td>",
+                    "<td class='text-center'>
+                        <a href='?ctrl=cart&action=remove&index=$index'>&times;</a>
+                    </td>",
+                    "<td>" . $line['product']->getName() . "</td>",
+                    "<td class='text-right'>" . $line['product']->getPrice(true) . "&nbsp;€</td>",
+                    "<td class='text-center'>" . $line['quantity'] . "</td>",
+                    "<td class='text-right'>" . number_format($line['total'], 2, ",", "&nbsp;") . "&nbsp;€</td>",
                 "</tr>";
-            $totalGeneral+= $order['total'];
+            $totalGeneral += $line['total'];
         }
         echo "<tr>",
                 "<td colspan=4>Total général : </td>",

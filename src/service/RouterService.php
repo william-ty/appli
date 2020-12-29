@@ -62,6 +62,6 @@
             // $action = $action ?? "index";
 
             header("Location:?ctrl=$ctrl&action=$action&id=$id");
-            return;
+            die;
         }
     }

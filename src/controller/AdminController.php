@@ -19,6 +19,9 @@
         }
 
         public function addAction(){
+
+            $manager = new ProductManager();
+
             //si nous arrivons sur cette méthode en ayant validé le form
             if(isset($_POST['submit'])){
                 //on filtre les champs du form
@@ -28,11 +31,11 @@
                 //si les filtres passent
                 if($name && $price){
                     //on instancie le manager
-                    $manager = new ProductManager();
                     $manager->insert($name, $price);    //ajout en base de données
                     //on redirige enfin vers le panel admin
                     MS::setMessage("success", "Produit ajouté avec succès !!");
-                    
+
+                    return Router::redirect("admin");
                 }
                 else MS::setMessage("error", "Formulaire mal rempli, réessayez !");
             }

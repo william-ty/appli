@@ -22,7 +22,7 @@ ou ? est égal à l'id du produit dans la bdd -->
                 "<p>",
                     $product->getPrice(true),
                 "€</p>",
-                "<a href='traitement.php?action=incart&id=".$product->getId()."'>Ajouter au panier</a>",
+                "<a href='?ctrl=cart&action=incart&id=".$product->getId()."'>Ajouter au panier</a>",
             "</div>";
     }
 

@@ -3,7 +3,6 @@
 
     <a href="?ctrl=admin">Administration</a>
 
+    <a href="?ctrl=cart">Panier</a>
 
-    <!-- <a href="recap.php">Voir mon panier</a>
-    <a href="form.php">Ajouter un produit à la liste</a> -->
 </nav>

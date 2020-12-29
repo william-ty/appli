@@ -12,10 +12,8 @@
         }
 
         public function indexAction(){
-            // on récupère les produits depuis le modele
             $products = $this->manager->getAll();
 
-            // deviendra $response dans index.php
             return [
                 "view" => "store/list.php",
                 "data" => $products

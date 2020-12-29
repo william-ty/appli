@@ -17,27 +17,27 @@
 
         switch($_GET['action']){
                 // ajout d'un produit choisi en session (dans le panier)
-            case "incart": 
-                // on récupère le bon produit dans la base de données
-                $product = $manager->getOneById($_GET['id']);
-                // on créé une ligne de panier avec :
-                // - le produit complet
-                // - la quantité à 1 (pour l'instant)
-                // - et un total égal au prix du produit vu que la quantité est à 1
-                $order = [
-                    "product"   => $product,
-                    "qtt"       => 1,
-                    "total"     => $product->getPrice()
-                ];
-                // on insère la ligne panier dans le panier en session
-                $_SESSION['cart'][] = $order;
-                // un petit message de succès avec un lien pour aller au panier 
-                MessageService::setMessage("success",
-                    "Produit ajouté au panier - <a href='recap.php'>Voir mon panier</a>"
-                );
-                // on redirige vers la liste des produits
-                header("Location:index.php");
-                die;
+            // case "incart": 
+                // // on récupère le bon produit dans la base de données
+                // $product = $manager->getOneById($_GET['id']);
+                // // on créé une ligne de panier avec :
+                // // - le produit complet
+                // // - la quantité à 1 (pour l'instant)
+                // // - et un total égal au prix du produit vu que la quantité est à 1
+                // $order = [
+                //     "product"   => $product,
+                //     "qtt"       => 1,
+                //     "total"     => $product->getPrice()
+                // ];
+                // // on insère la ligne panier dans le panier en session
+                // $_SESSION['cart'][] = $order;
+                // // un petit message de succès avec un lien pour aller au panier 
+                // MessageService::setMessage("success",
+                //     "Produit ajouté au panier - <a href='recap.php'>Voir mon panier</a>"
+                // );
+                // // on redirige vers la liste des produits
+                // header("Location:index.php");
+                // die;
             //ajout de produit
             // case "add": 
             //     if(isset($_POST['submit'])){

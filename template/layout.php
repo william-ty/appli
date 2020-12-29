@@ -9,6 +9,9 @@
         <title>Boutique</title>
     </head>
     <body>
+    <?php
+        // var_dump($_SESSION);
+    ?>
         <div id="wrapper">
             <header>
                 <?php 
