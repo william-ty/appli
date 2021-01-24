@@ -5,11 +5,12 @@
     use App\Entity\Cart;
 
     abstract class CartHandlerService {
+        
         public static function getCart() :Cart {
             if(!isset($_SESSION["cart"])){
                 self::setCart(new Cart());
             }
-            return $_SESSION["cart"];
+            return var_dump($_SESSION["cart"]);
         }
 
         public static function setCart(Cart $cart) {

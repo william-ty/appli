@@ -6,7 +6,7 @@
     use App\Service\RouterService as Router;
     use App\Service\MessageService as MS;
 
-    qclass CartController
+    class CartController
     {
         private $manager;
 
