@@ -10,7 +10,7 @@
             if(!isset($_SESSION["cart"])){
                 self::setCart(new Cart());
             }
-            return var_dump($_SESSION["cart"]);
+            return $_SESSION["cart"];
         }
 
         public static function setCart(Cart $cart) {
